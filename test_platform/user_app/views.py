@@ -37,7 +37,7 @@ def index(request):
 @login_required
 def logout(request):
 	auth.logout(request)
-	return HttpResponseRedirect("index.html")
+	return HttpResponseRedirect("/index/")
 
 
 def home(request):
