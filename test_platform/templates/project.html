@@ -13,9 +13,9 @@
             <a class="navbar-brand" href="#">接口测试平台</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar navbar-right">
+            <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Settings</a></li>
-                <li><a href="/logout">logout</a></li>
+                <li><a href="/logout/">logout</a></li>
             </ul>
             <form class="navbar-form navbar-right">
                 <input type="text" class="form-control" placeholder="Search...">
@@ -27,39 +27,39 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav-sidebar">
+            <ul class="nav nav-sidebar">
                 <li class="active">
                     <a href="/project/">
-                        <i class="glyphicon glyphicon-th-large"></i>&nbsp&nbsp项目管理
+                        <i class="glyphicon glyphicon-th-large"></i>&nbsp;&nbsp;项目管理
                     </a>
                 </li>
                 <li>
                     <a href="/module/">
-                        <i class="glyphicon glyphicon-th"></i>&nbsp&nbsp模块管理
+                        <i class="glyphicon glyphicon-th-large"></i>&nbsp;&nbsp;模块管理
                     </a>
                 </li>
             </ul>
             <ul class="nav nav-sidebar">
                 <li>
                     <a href="/testcase/">
-                        <i class="glyphicon glyphicon-list-alt"></i>&nbsp&nbsp用例管理
+                        <i class="glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;用例管理
                     </a>
                 </li>
                 <li>
                     <a href="/testtask/">
-                        <i class="glyphicon glyphicon-th-list"></i>&nbsp&nbsp任务管理
+                        <i class="glyphicon glyphicon-th-list"></i>&nbsp;&nbsp;任务管理
                     </a>
                 </li>
             </ul>
             <ul class="nav nav-sidebar">
                 <li>
                     <a href="">
-                        <i class="glyphicon glyphicon-log-in"></i>&nbsp&nbspmock Server
+                        <i class="glyphicon glyphicon-log-in"></i>&nbsp;&nbsp;Mock Server
                     </a>
                 </li>
                 <li>
                     <a href="">
-                        <i class="glyphicon glyphicon-wrench"></i>&nbsp&nbsp测试工具
+                        <i class="glyphicon glyphicon-wrench"></i>&nbsp;&nbsp;测试工具
                     </a>
                 </li>
             </ul>
@@ -95,7 +95,7 @@
                                 <span>开启</span>
                             {% else %}
                                 <span>关闭</span>
-                            {endif}
+                            {% endif %}
                         </td>
                         <td>{{ project.create_time | date:"Y-m-d H:i:s" }}</td>
                         <td>
@@ -103,7 +103,7 @@
                                 <i class="glyphicon glyphicon-pencil"></i>
                             </a>
                             <a href="/project/delete_project/{{ project.id }}/" style="margin-left: 10px;">
-                                <i class="glyphicon-trash"></i>
+                                <i class="glyphicon  glyphicon-trash"></i>
                             </a>
                         </td>
                     </tr>
@@ -159,7 +159,7 @@
                 <h4 class="sub-header">编辑项目
                     <form action="/project/edit_project/{{ id }}/" method="post">
                         {{ form.as_p }}
-                        <input class="form-horizontal" type="submit" value="保存">
+                        <input class="btn btn-success" type="submit" value="保存">
                     </form>
                 </h4>
             {% endif %}

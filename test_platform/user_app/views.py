@@ -29,8 +29,8 @@ def index(request):
 			return render(request, "index.html", {"error": "用户名或密码错误"})
 		else:
 			auth.login(request, user)  # 记录用户的登录状态
-			# return HttpResponseRedirect("/project/")
-			return HttpResponseRedirect("/home/")
+			return HttpResponseRedirect("/project/")
+			# return HttpResponseRedirect("/home/")
 
 
 # 处理用户的退出
@@ -40,5 +40,5 @@ def logout(request):
 	return HttpResponseRedirect("/index/")
 
 
-def home(request):
-	return render(request, 'home.html')
+# def home(request):
+# 	return render(request, 'home.html')

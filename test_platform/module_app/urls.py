@@ -9,7 +9,7 @@ from django.urls import path
 from module_app import views
 
 
-urlpathterns = [
+urlpatterns = [
     # 模块管理
     path('', views.module_manage),
     path('add_module/', views.add_module),

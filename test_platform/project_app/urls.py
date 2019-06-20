@@ -8,7 +8,7 @@ version: 3.7
 from django.urls import path
 from project_app import views
 
-urlpathterns = [
+urlpatterns = [
     # 项目管理
     path('', views.project_manage),
     path('add_project/', views.add_project),

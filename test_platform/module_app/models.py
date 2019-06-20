@@ -2,6 +2,7 @@ from django.db import models
 from project_app.models import Project
 # Create your models here.
 
+
 class Module(models.Model):
     """
     模块表

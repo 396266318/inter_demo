@@ -6,23 +6,36 @@ from module_app.forms import ModuleForm
 # Create your views here.
 
 
-@ login_required
+@login_required
 def module_manage(request):
     """
     模块管理
+    :param request:
+    :return:
     """
     if request.method == "GET":
         module_all = Module.objects.all()
         return render(request, "module.html", {"modules": module_all, "type": "list"})
 
+
+@ login_required
+def add_module(request):
+    """
+    添加模块
+    """
+    if request.method == "GET":
+        module_form = ModuleForm()
+        return render(request, "module.html", {"form": module_form, "type": "add"})
+
     if request.method == "POST":
         form = ModuleForm(request.POST)
-        project = form.cleaned_data['project']
-        name = form.cleaned_data["name"]
-        describe = form.cleaned_data["describe"]
-        Module.objects.create(project=project, name=name, describe=describe)
+        if form.is_valid():
+            project = form.cleaned_data['project']
+            name = form.cleaned_data["name"]
+            describe = form.cleaned_data["describe"]
+            Module.objects.create(project=project, name=name, describe=describe)
 
-        return HttpResponseRedirect("/module/")  # 重定向到 module.html 页面
+            return HttpResponseRedirect("/module/")  # 重定向到 module.html 页面
 
 
 def edit_module(request, mid):
@@ -33,7 +46,7 @@ def edit_module(request, mid):
     :return:
     """
     if request.method == "GET":
-        module = Module.objects.get(id=id)
+        module = Module.objects.get(id=mid)
         module_form = ModuleForm(instance=module)
         module_dict = {
              "form": module_form,

@@ -1,9 +1,9 @@
 from django import forms
-from models_app.models import Module
+from module_app.models import Module
 
 
-class ModuleForm(forms.ModuleForm):
+class ModuleForm(forms.ModelForm):
     
     class Meta:
-        modle = Module
+        model = Module
         fields = ['project', 'name', 'describe']
