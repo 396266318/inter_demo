@@ -230,14 +230,13 @@
             return;
         }
         window.alert("parameter:" + parameter);
-        $.post("/testcasse/save_case", {
+        $.post("/testcase/save_case", {
             url: url,
             method: method,
             header: header,
             par_type: parameter_type,
             par_body: parameter_body,
             assert_type: assert_type,
-            assert_body: assert_body,
             ass_text: assert_text,
             mid: module_id,
             name: case_name,

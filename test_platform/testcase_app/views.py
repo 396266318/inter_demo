@@ -71,7 +71,7 @@ def delete_case(request, cid):
 def testcase_debug(request):
     """测试用例的调试"""
     if request.method == "POST":
-        url = request.request.POST.get("url", "")      # URL
+        url = request.POST.get("url", "")      # URL
         method = request.POST.get("method", "")        # 方法
         header = request.POST.get("header", "")        # header 请求头
         par_type = request.POST.get("type", "")        # 参数类型
@@ -93,17 +93,17 @@ def testcase_debug(request):
 
         result_text = None
         if method == "get":
-            response = request.get(url, params=payload, headers=header)
-            result_text = response.text
+            r = requests.get(url, params=payload, headers=header)
+            result_text = r.text
 
         if method == "post":
             if par_type == "form":
-                response = request.post(url, data=payload, headers=header)
-                result_text = response.text
+                r = requests.post(url, data=payload, headers=header)
+                result_text = r.text
 
             if par_type == "json":
-                response = request.post(url, json=payload, headers=header)
-                result_text = response.text
+                r = requests.post(url, json=payload, headers=header)
+                result_text = r.text
 
         return JsonResponse({"result": result_text})
     else:
